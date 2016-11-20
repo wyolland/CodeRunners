@@ -1,7 +1,5 @@
 from django.core.management.base import BaseCommand
 from WICSApp.models import Quote
-import datetime
-from django.utils import timezone
 
 class Command(BaseCommand):
     args = '<foo bar ...>'

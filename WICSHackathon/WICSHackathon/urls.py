@@ -17,8 +17,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from WICSApp import views
 
+# Routes?
 urlpatterns = [
-
     url(r'^$', include('WICSApp.urls')),
     url(r'^admin/', admin.site.urls),
 ]
