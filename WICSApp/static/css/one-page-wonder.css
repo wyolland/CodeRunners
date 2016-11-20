@@ -151,7 +151,7 @@ footer {
     }
 
     .headline h1 {
-        font-size: 50px;
+        font-size: 40px;
     }
 
     .headline h2 {
@@ -160,6 +160,10 @@ footer {
 }
 
 @media(max-width:375px) {
+  .headline h1 {
+      font-size: 30px;
+  }
+
     .featurette-divider {
         margin: 10px 0;
     }
