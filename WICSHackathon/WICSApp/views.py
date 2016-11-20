@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from .models import Quote
 
 def index(request):
-    latest_quote_list = Quote.objects.order_by('-pub_date')[:5]
+    latest_quote_list = Quote.objects.order_by('-pub_date')
     context = {'latest_quote_list': latest_quote_list}
     return render(request, 'WICSApp/index.html', context)
 
