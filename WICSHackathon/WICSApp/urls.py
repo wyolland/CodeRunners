@@ -11,5 +11,5 @@ urlpatterns = [
     # ex: /WICSApp/5/results/
     url(r'^(?P<quote_id>[0-9]+)/results/$', views.downvote, name='downvote'),
     # ex: /WICSApp/5/vote/
-    url(r'^(?P<quote_id>[0-9]+)/vote/$', views.vote, name='vote'),
+    url(r'^(?P<quote_id>[0-9]+)/random/$', views.random, name='random'),
 ]

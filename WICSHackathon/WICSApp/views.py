@@ -26,6 +26,11 @@ def downvote(request, quote_id):
     context = {'latest_quote_list': latest_quote_list}
     return render(request, 'WICSApp/index.html', context)
 
+def random(request, quote_id):
+    quote = get_object_or_404(Quote, pk=quote_id)
+    context = {'quote': quote}
+    return render(request, 'WICSApp/random.html', context)
+
 def detail(request, quote_id):
     quote = get_object_or_404(Quote, pk=quote_id)
     return render(request, 'WICSAppdetail.html', {'quote': quote})
