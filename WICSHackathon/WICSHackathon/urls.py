@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from WICSApp import views
 
 urlpatterns = [
-    url(r'^WICSApp/', include('WICSApp.urls')),
+
+    url(r'^$', include('WICSApp.urls')),
     url(r'^admin/', admin.site.urls),
 ]
