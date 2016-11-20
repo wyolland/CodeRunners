@@ -78,9 +78,8 @@
 
         <!-- First Featurette -->
         <div class="featurette" id="quotes" style="text-align:center">
-            <p class="lead">{% if latest_quote_list %}
+            <p class="lead">{% if quote %}
                 <ul>
-                {% for quote in latest_quote_list %}
                     <h2 class="featurette-heading" style="padding-right: 10px">&quot;<a href=""></a>{{ quote.quote_text }}&quot;</h2>
                     <br>
                     <h2 class="featurette-heading" style="padding-right: 10px">
@@ -88,7 +87,6 @@
                     <h2>
                     <hr class="featurette-divider">
 
-                {% endfor %}
                 </ul>
             {% else %}
                 <p>No quotes are available.</p>
