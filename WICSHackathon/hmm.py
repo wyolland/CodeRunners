@@ -40,7 +40,7 @@ for i in range(QUOTES_TO_GEN):
     LENGTH = len(quote_list)
     quote_str = ""
     for j in range(0, LENGTH):
-        quote_str = (quote_str + quote_list[j][0] + " ") if j+1 < len(quote_list) else (quote_str + quote_list[j][0] + ".\n")
+        quote_str = (quote_str + quote_list[j][0] + " ") if j+1 < LENGTH else (quote_str + quote_list[j][0] + ".\n")
     matches = tool.check(quote_str)
     quote_str = language_check.correct(quote_str, matches)
     f.write(quote_str)
