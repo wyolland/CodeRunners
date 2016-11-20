@@ -1,2 +1,2 @@
-web: waitress-serve --port=$PORT WICSHackathon.wsgi:application
+web: gunicorn WICSHackathon.wsgi --log-file '-'
 
