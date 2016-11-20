@@ -40,6 +40,9 @@ def results(request, quote_id):
     response = "You're looking at the results of quote %s."
     return HttpResponse(response % quote_id)
 
+def random(request):
+    return Quote.objects.filter(id=randint(1,Quote.objects.count()+1))
+
 # remove this view later
 def vote(request, quote_id):
     return HttpResponse("You're voting on quote %s." % quote_id)
