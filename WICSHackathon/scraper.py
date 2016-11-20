@@ -3,7 +3,7 @@ import scrapy
 class MotivationSpider(scrapy.Spider):
         name = 'motivational spider'
         start_urls = [
-            'http://www.goodreads.com/quotes/tag/inspiration',
+            'http://www.goodreads.com/quotes/tag/inspiration?',
         ]
 
         def parse(self, response):
@@ -13,7 +13,7 @@ class MotivationSpider(scrapy.Spider):
                     'text': quote.css('div.quoteText::text').extract_first()
                 }
 
-            next_page = response.xpath('//a.next_page/@href').extract()
+            next_page = response.xpath('//a[@class="next_page"]/@href').extract_first()
 
             print "NEXT PAGE YO: ", next_page
             if next_page is not None:

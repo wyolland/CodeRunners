@@ -1,27 +1,43 @@
 # Import the toolkit and tags
-import nltk
 import csv
-import numpy
 import random
+import nltk
+from nltk import tokenize
 from nltk.tag import hmm
-from nltk import corpus
-from nltk import model
 
-reader = csv.reader(open('quotes.csv', 'r'), delimiter= "\n")
+QUOTES_TO_GEN = 100
+UPPER_QUOTE = 20
+LOWER_QUOTE = 7
 
 rng = random.random()
 
+reader = csv.reader(open('quotes.csv', 'r'), delimiter= "\n")
+
+words_only = tokenize.RegexpTokenizer('([A-Za-z]\w+)')
+
 train_data = []
 for i, line in enumerate(reader):
-    tokens = nltk.word_tokenize(line[0])
+    tokens = words_only.tokenize(line[0])
     train_data.append(nltk.pos_tag(tokens))
 
-# model.build_vocabulary(train_data)
-#
-# content_model = model.ngram.MLENgramModel(train_data)
+reader = csv.reader(open('quotes2.csv', 'r'), delimiter="\n")
+
+for i, line in enumerate(reader):
+    if line:
+        tokens = words_only.tokenize(line[0])
+        train_data.append(nltk.pos_tag(tokens))
 
 trainer = hmm.HiddenMarkovModelTrainer()
 modelHMM = trainer.train(train_data)
-print modelHMM.random_sample(random,random.randrange(10, 20))
-#
-# print tagger
+
+f = open("input.txt", 'w')
+
+for i in range(QUOTES_TO_GEN):
+    quote_list = modelHMM.random_sample(random,random.randrange(LOWER_QUOTE, UPPER_QUOTE))
+    LENGTH = len(quote_list)
+    quote_str = ""
+    for j in range(0, LENGTH):
+        quote_str = (quote_str + quote_list[j][0] + " ") if j+1 < LENGTH else (quote_str + quote_list[j][0] + ".\n")
+    f.write(quote_str)
+
+f.close()
