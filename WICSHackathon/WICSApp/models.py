@@ -9,7 +9,7 @@ from django.utils.encoding import python_2_unicode_compatible
 @python_2_unicode_compatible # needed to support Python 2
 class Quote(models.Model):
     quote_text = models.CharField(max_length=200)
-    rank = models.IntField()
+    rank = models.IntegerField(default=0)
     pub_date = models.DateTimeField('date published')
 
     def __str__(self):
