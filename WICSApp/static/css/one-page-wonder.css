@@ -89,7 +89,7 @@ footer {
 
 @media(max-width:991px) {
     .headline h1 {
-        font-size: 90px;
+        font-size: 80px;
     }
 
     .headline h2 {
@@ -133,7 +133,7 @@ footer {
 
 @media(max-width:668px) {
     .headline h1 {
-        font-size: 60px;
+        font-size: 50px;
     }
 
     .headline h2 {
@@ -151,7 +151,7 @@ footer {
     }
 
     .headline h1 {
-        font-size: 60px;
+        font-size: 50px;
     }
 
     .headline h2 {
