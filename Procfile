@@ -1,2 +1,2 @@
-web: waitress-serve --port=$PORT {WICSHackathon}.wsgi:application
+web: waitress-serve --port=$PORT WICSHackathon.wsgi:application
 
