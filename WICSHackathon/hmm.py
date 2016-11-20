@@ -2,8 +2,11 @@
 import csv
 import random
 import nltk
+import language_check
 from nltk import tokenize
 from nltk.tag import hmm
+
+tool = language_check.LanguageTool('en-US')
 
 QUOTES_TO_GEN = 100
 UPPER_QUOTE = 20
@@ -38,6 +41,8 @@ for i in range(QUOTES_TO_GEN):
     quote_str = ""
     for j in range(0, LENGTH):
         quote_str = (quote_str + quote_list[j][0] + " ") if j+1 < LENGTH else (quote_str + quote_list[j][0] + ".\n")
+    matches = tool.check(quote_str)
+    quote_str = language_check.correct(quote_str, matches)
     f.write(quote_str)
 
 f.close()
