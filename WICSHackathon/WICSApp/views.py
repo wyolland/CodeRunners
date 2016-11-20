@@ -10,6 +10,22 @@ def index(request):
     context = {'latest_quote_list': latest_quote_list}
     return render(request, 'WICSApp/index.html', context)
 
+def upvote(request, quote_id):
+    quote = get_object_or_404(Quote, pk=quote_id)
+    quote.rank += 1
+    quote.save()
+    latest_quote_list = Quote.objects.order_by('-rank')
+    context = {'latest_quote_list': latest_quote_list}
+    return render(request, 'WICSApp/index.html', context)
+
+def downvote(request, quote_id):
+    quote = get_object_or_404(Quote, pk=quote_id)
+    quote.rank -= 1
+    quote.save()
+    latest_quote_list = Quote.objects.order_by('-rank')
+    context = {'latest_quote_list': latest_quote_list}
+    return render(request, 'WICSApp/index.html', context)
+
 def detail(request, quote_id):
     quote = get_object_or_404(Quote, pk=quote_id)
     return render(request, 'WICSAppdetail.html', {'quote': quote})

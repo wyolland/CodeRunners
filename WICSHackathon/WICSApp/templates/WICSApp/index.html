@@ -81,10 +81,10 @@
             <p class="lead">{% if latest_quote_list %}
                 <ul>
                 {% for quote in latest_quote_list %}
-                    <h2 class="featurette-heading" style="padding-right: 10px">&quot;<a href="/WICSApp/{{ quote.id }}/"></a>{{ quote.quote_text }}&quot;</h2>
+                    <h2 class="featurette-heading" style="padding-right: 10px">&quot;<a href=""></a>{{ quote.quote_text }}&quot;</h2>
                     <br>
                     <h2 class="featurette-heading" style="padding-right: 10px">
-                      <div><button name="--" class = "btn btn-primary" style="background-color:red; width: 50px"> -- </button>&nbsp;&nbsp;{{ quote.rank }}&nbsp;&nbsp;<button name="++" class = "btn btn-primary" style="background-color:green; width: 50px"> ++ </button>&nbsp;&nbsp;</div>
+                      <div><button name="--" class = "btn btn-primary" style="background-color:red; width: 50px" onclick="location.href = '/WICSApp/{{ quote.id }}/results'"> -- </button>&nbsp;&nbsp;{{ quote.rank }}&nbsp;&nbsp;<button name="++" onclick="location.href = '/WICSApp/{{ quote.id }}/'" class = "btn btn-primary" style="background-color:green; width: 50px"> ++  </button>&nbsp;&nbsp;</div>
                     <h2>
                     <hr class="featurette-divider">
 
