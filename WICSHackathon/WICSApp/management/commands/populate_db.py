@@ -13,9 +13,10 @@ class Command(BaseCommand):
             for line in f:
                 inner_list = [elt.strip() for elt in line.split(',')]
                 to_append = str(inner_list)[2:len(str(inner_list))-2]
+                to_append = to_append.lower()
+                new_string = to_append[0].upper()
+                to_append = new_string + to_append[1:]
                 print(to_append)
-                # in alternative, if you need to use the file content as numbers
-                # inner_list = [int(elt.strip()) for elt in line.split(',')]
                 date_now = datetime.datetime.now()
                 date_now = timezone.make_aware(date_now, timezone.get_current_timezone())
 
