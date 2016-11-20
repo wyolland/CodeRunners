@@ -1,7 +1,6 @@
 # from django.shortcuts import render
 from django.http import HttpResponse
-from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Quote
 
@@ -11,11 +10,8 @@ def index(request):
     return render(request, 'WICSApp/index.html', context)
 
 def detail(request, quote_id):
-    try:
-        quote = Quote.objects.get(pk=quote_id)
-    except Quote.DoesNotExist:
-        raise Http404("Quote does not exist")
-    return render(request, 'WICSApp/detail.html', {'quote': quote})
+    quote = get_object_or_404(Quote, pk=quote_id)
+    return render(request, 'WICSAppdetail.html', {'quote': quote})
 
 # remove this view later
 def results(request, quote_id):
