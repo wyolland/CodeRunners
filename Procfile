@@ -1,1 +1,1 @@
-web: gunicorn WICSHackathon.wsgi --log-file -
+web: gunicorn WICSHackathon/WICSHackathon.wsgi --log-file -
