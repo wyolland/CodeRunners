@@ -77,11 +77,15 @@
         <hr class="featurette-divider">
 
         <!-- First Featurette -->
-        <div class="featurette" id="quotes" style="text-align: center">
+        <div class="featurette" id="quotes" style="text-align:center">
             <p class="lead">{% if latest_quote_list %}
                 <ul>
                 {% for quote in latest_quote_list %}
-                    <h2 class="featurette-heading">&quot;<a href="/WICSApp/{{ quote.id }}/"></a>{{ quote.quote_text }}&quot;</h2><br>
+                    <h2 class="featurette-heading" style="padding-right: 10px">&quot;<a href="/WICSApp/{{ quote.id }}/"></a>{{ quote.quote_text }}&quot;</h2>
+                    <br>
+                    <h2 class="featurette-heading" style="padding-right: 10px">
+                      <div><button name="--" class = "btn btn-primary" style="background-color:red; width: 50px"> -- </button>&nbsp;&nbsp;{{ quote.rank }}&nbsp;&nbsp;<button name="++" class = "btn btn-primary" style="background-color:green; width: 50px"> ++ </button>&nbsp;&nbsp;</div>
+                    <h2>
                     <hr class="featurette-divider">
 
                 {% endfor %}

@@ -20,7 +20,7 @@ class Command(BaseCommand):
                 date_now = datetime.datetime.now()
                 date_now = timezone.make_aware(date_now, timezone.get_current_timezone())
 
-                the_quote = Quote(quote_text=to_append, pub_date=date_now)
+                the_quote = Quote(quote_text=to_append, pub_date=date_now, rank=0)
                 the_quote.save()
 
     def handle(self, *args, **options):
