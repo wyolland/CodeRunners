@@ -1,1 +1,1 @@
-web: gunicorn WICSHackathon/WICSHackathon.wsgi --log-file -
+web: waitress-serve WICSHackathon.wsgi:application --log-file -
