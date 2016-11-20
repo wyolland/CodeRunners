@@ -1,16 +1,19 @@
 from __future__ import unicode_literals
 
+import datetime
+
 from django.db import models
 from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
 
-# Makes shit work for python 2
-@python_2_unicode_compatible
-
+@python_2_unicode_compatible # needed to support Python 2
 class Quote(models.Model):
-    # A field in our database
     quote_text = models.CharField(max_length=200)
+    rank = models.IntField()
+    pub_date = models.DateTimeField('date published')
 
-    # It's important to add __str__() methods to your models, not only for your own convenience when dealing with the interactive prompt, but also because objects' representations are used throughout Django's automatically-generated admin.
     def __str__(self):
         return self.quote_text
+
+    def was_published_recently(self):
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
