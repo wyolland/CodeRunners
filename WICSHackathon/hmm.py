@@ -8,7 +8,9 @@ from nltk.tag import hmm
 
 tool = language_check.LanguageTool('en-US')
 
-QUOTES_TO_GEN = 10
+QUOTES_TO_GEN = 100
+UPPER_QUOTE = 20
+LOWER_QUOTE = 7
 
 rng = random.random()
 
@@ -34,7 +36,7 @@ modelHMM = trainer.train(train_data)
 f = open("input.txt", 'w')
 
 for i in range(QUOTES_TO_GEN):
-    quote_list = modelHMM.random_sample(random,random.randrange(7, 20))
+    quote_list = modelHMM.random_sample(random,random.randrange(LOWER_QUOTE, UPPER_QUOTE))
     quote_str = ""
     for j in range(0, len(quote_list)):
         quote_str = (quote_str + quote_list[j][0] + " ") if j+1 < len(quote_list) else (quote_str + quote_list[j][0] + ".\n")
